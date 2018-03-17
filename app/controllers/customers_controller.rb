@@ -1,18 +1,17 @@
 class CustomersController < ApplicationController
   def index
-    @customers = Customers.all
+    @customers = Customer.order(:Full_name)
   end
 
   def show
-    @customer = Customer.find(params[:id])
-  end
+    @customers = Customer.find(params[:id])
   end
 
   def alphabetized
-    @customers = Customers.order(:Full_name)
+    @customers = Customer.order(:Full_name)
   end
 
   def missing_email
-    @customer = Customer.find(params[:Email_address] == '')
+    @customers = Customer.find(params[:Email_address] == '')
   end
 end
