@@ -1,14 +1,19 @@
 <div class="ui three item menu">
- <a class="active item">Home</a>
- <a class="item">Alphabetized</a>
- <a class="item">Missing Emails</a>
+  <%= link_to semantic_icon('home') + 'Home', root_path, class: 'item'%>
+  <%= link_to 'Alphabetized', customers_alphabetized_path, class: 'item'%>
+  <%= link_to 'Missing Emails', customers_missing_email_path, class: 'item'%>
 </div>
-
-<div class="ui link cards">
+<div class="container">
+  <div class="ui piled segment">
+<div class="ui centered link three cards">
   <% @customers.each do |customers|  %>
 <div class="card">
   <div class="image">
-    <img src="/images/avatar2/large/matthew.png">
+    <% if customers.Image.present? %>
+     <%= image_tag customers.Image%>
+    <% else %>
+
+    <% end %>
   </div>
   <div class="content">
     <div class="header"><%=customers.Full_name%></div>
@@ -41,4 +46,17 @@
   </div>
 </div>
   <% end %>
+</div>
+  </div>
+  <div class="ui container">
+    <div class="ui right floated horizontal list">
+      <div class="disabled item" href="#">© 2018 CRM Challenge</div>
+      <div class="disabled item" href="#">Dragon Ball Super Reference</div>
+    </div>
+    <div class="ui horizontal list">
+      <%= link_to 'Home', root_path, class: 'item'%>
+      <%= link_to 'Alphabetized', customers_alphabetized_path, class: 'item'%>
+      <%= link_to 'Missing Emails', customers_missing_email_path, class: 'item'%>
+    </div>
+  </div>
 </div>

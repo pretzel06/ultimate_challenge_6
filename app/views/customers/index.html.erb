@@ -1,4 +1,9 @@
-<h1>Customers#index</h1>
-<p>Find me in app/views/customers/index.html.erb</p>
-
-<%= render partial: 'customer', object: @customers %>
+<div class="grid container">
+  <br>
+  <h3 class="ui teal center aligned header">
+    All Customers
+  </h3>
+  <div class="ui main text container">
+    <%= render partial: 'customer', object: @customers %>
+  </div>
+</div>

@@ -1,4 +1,9 @@
-<h1>Customers#missing_email</h1>
-<p>Find me in app/views/customers/show.html.erb</p>
-
-<%= render partial: 'customer', object: @customers %>
+<div class="grid container">
+  <br>
+  <h3 class="ui teal center aligned header">
+    Customers with missing emails
+  </h3>
+  <div class="ui main text container">
+    <%= render partial: 'customer', object: @customers %>
+  </div>
+</div>
