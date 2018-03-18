@@ -1,7 +1,44 @@
-<% @customers.each do |customers|  %>
-  <h2><%=customers.Full_name%></h2>
-  <h3><%=customers.Email_address%></h3>
-  <!-- it should be phone number typos acknowledged Lol -->
-  <h3><%=customers.Phone_name%></h3>
-<% end %>
+<div class="ui three item menu">
+ <a class="active item">Home</a>
+ <a class="item">Alphabetized</a>
+ <a class="item">Missing Emails</a>
+</div>
 
+<div class="ui link cards">
+  <% @customers.each do |customers|  %>
+<div class="card">
+  <div class="image">
+    <img src="/images/avatar2/large/matthew.png">
+  </div>
+  <div class="content">
+    <div class="header"><%=customers.Full_name%></div>
+    <div class="meta">
+      <!-- it should be phone number typos acknowledged Lol -->
+      <a>
+        <% if customers.Phone_name != '' %>
+          <%=customers.Phone_name%>
+        <% else %>
+          Unknown number  ╯°□°）╯︵ ┻━┻
+        <% end %>
+      </a>
+    </div>
+    <div class="description">
+      <% if customers.Notes != '' %>
+        <%=customers.Notes%>
+      <% else %>
+        There is no notes.
+      <% end %>
+    </div>
+  </div>
+  <div class="extra content">
+    <span>
+      <% if customers.Email_address != '' %>
+        <%=customers.Email_address%>
+      <% else %>
+       Missing Email!
+      <% end %>
+    </span>
+  </div>
+</div>
+  <% end %>
+</div>
