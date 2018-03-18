@@ -1,10 +1,6 @@
 class CustomersController < ApplicationController
   def index
-    @customers = Customer.order(:Full_name)
-  end
-
-  def show
-    @customers = Customer.find(params[:id])
+    @customers = Customer.all
   end
 
   def alphabetized
@@ -12,6 +8,6 @@ class CustomersController < ApplicationController
   end
 
   def missing_email
-    @customers = Customer.find(params[:Email_address] == '')
+    @customers = Customer.where(Email_address: [nil, ""])
   end
 end
